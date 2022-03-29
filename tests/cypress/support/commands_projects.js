@@ -13,7 +13,6 @@ Cypress.Commands.add('goToProjectsList', () => {
 Cypress.Commands.add(
     'createProjects',
     (projectName, labelName, attrName, textDefaultValue, multiAttrParams, expectedResult = 'success') => {
-        cy.get('.cvat-create-project-dropdown').click();
         cy.get('.cvat-create-project-button').click();
         cy.get('#name').type(projectName);
         cy.get('.cvat-constructor-viewer-new-item').click();

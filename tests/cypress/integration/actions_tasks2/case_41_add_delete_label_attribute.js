@@ -13,8 +13,7 @@ context('Add/delete labels and attributes.', () => {
     before(() => {
         cy.visit('auth/login');
         cy.login();
-        cy.get('.cvat-create-task-dropdown').click();
-        cy.get('.cvat-create-task-button').click();
+        cy.get('#cvat-create-task-button').click();
     });
 
     describe(`Testing "${labelName}"`, () => {
