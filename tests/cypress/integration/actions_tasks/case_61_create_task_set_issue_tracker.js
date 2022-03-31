@@ -27,7 +27,8 @@ context('Create a task with set an issue tracker.', () => {
         cy.login();
         cy.imageGenerator(imagesFolder, imageFileName, width, height, color, posX, posY, labelName, imagesCount);
         cy.createZipArchive(directoryToArchive, archivePath);
-        cy.get('#cvat-create-task-button').click();
+        cy.get('.cvat-create-task-dropdown').click();
+        cy.get('.cvat-create-task-button').click();
     });
 
     after(() => {

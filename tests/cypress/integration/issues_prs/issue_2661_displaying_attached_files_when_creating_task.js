@@ -28,7 +28,8 @@ context('Displaying attached files when creating a task.', () => {
         cy.login();
         cy.imageGenerator(imagesFolder, imageFileName, width, height, color, posX, posY, labelName, imagesCount);
         cy.createZipArchive(directoryToArchive, archivePath);
-        cy.get('#cvat-create-task-button').click();
+        cy.get('.cvat-create-task-dropdown').click();
+        cy.get('.cvat-create-task-button').click();
     });
 
     describe(`Testing "${labelName}"`, () => {

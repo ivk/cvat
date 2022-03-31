@@ -12,7 +12,8 @@ context('Connected file share.', () => {
     const assetLocalPath = `cypress/integration/actions_tasks3/assets/case_${caseId}`;
 
     function createOpenTaskWithShare() {
-        cy.get('#cvat-create-task-button').click();
+        cy.get('.cvat-create-task-dropdown').click();
+        cy.get('.cvat-create-task-button').should('be.visible').click();
         cy.get('#name').type(taskName);
         cy.addNewLabel(labelName);
         cy.contains('[role="tab"]', 'Connected file share').click();

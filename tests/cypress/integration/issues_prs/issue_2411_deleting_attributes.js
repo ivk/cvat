@@ -40,7 +40,8 @@ context('Wrong attribute is removed in label constructor.', () => {
 
     describe(`Testing issue "${issueId}"`, () => {
         it('Open the create task page.', () => {
-            cy.get('#cvat-create-task-button').click();
+            cy.get('.cvat-create-task-dropdown').click();
+            cy.get('.cvat-create-task-button').click({ force: true });
         });
         it('Go to Raw labels editor. Insert values.', () => {
             cy.get('[role="tab"]').contains('Raw').click();
