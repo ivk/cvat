@@ -145,3 +145,31 @@ Cypress.Commands.add('selectFilterValue', (filterValue) => {
     cy.get('.cvat-filters-modal-visible').should('not.exist');
     cy.get('.cvat-filters-modal').should('be.hidden');
 });
+
+Cypress.Commands.add('pagefilterItemSortBy', () => {
+    cy.get('.ant-dropdown-trigger').contains('Sort by').click();
+    cy.get('.cvat-objects-sidebar-ordering-dropdown').within(() => {
+        cy.get(`.ant-select-item-option[title="${sortBy}"]`).click();
+    });
+});
+
+Cypress.Commands.add('projectSearchField', (searchWord) => {
+    cy.get('.cvat-projects-page-filters-wrapper input[type="text"]').type(searchWord);
+    cy.get('.cvat-projects-page-filters-wrapper button.ant-input-search-button').click();
+    cy.get('.cvat-spinner').should('not.exist');
+});
+
+Cypress.Commands.add('projectSearchFieldClear', () => {
+    cy.get('.cvat-projects-page-filters-wrapper input[type="text"]').clear();
+    cy.get('.cvat-projects-page-filters-wrapper button.ant-input-search-button').click();
+    cy.get('.cvat-spinner').should('not.exist');
+});
+
+Cypress.Commands.add('projectSortField', () => {
+
+});
+
+/*cy.get('.cvat-task-details-user-block').within(() => {
+    cy.get('[type="search"]').click().clear().type('{Enter}');
+});
+*/

@@ -11,6 +11,7 @@
     "password": "12qwaszx"
   },
   "testFiles": [
+	"filtering/*.js",
     "auth_page.js",
     "actions_tasks/**/*.js",
     "actions_tasks2/**/*.js",
