@@ -57,6 +57,12 @@ class TestUploadData:
             self._upload_taskfile_202_post(username, task_id, data, **kwargs)
         elif method == 'tus':
             data.update([('chunk_size', 100), ("use_zip_chunks", False)])
+            # todo: change this block
+            with open(filename, 'wb+') as f:
+                for chunk in filename.chunks():
+                    f.write(chunk)
+
+
             self._test_create_task_202_patch(username, task_id, data, **kwargs)
 
         task_data = self._get_task(username, task_id, number=0, quality='compressed',type='preview')
